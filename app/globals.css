@@ -17,5 +17,21 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:var(--font-PlusJakartaSans),
+  Helvetica, sans-serif;
+  background-color:#F6F7F9 ;
+
+}
+
+.container{
+  max-width: 90vw;
+  margin: auto;
+}
+
+.cencel::-webkit-search-cancel-button {
+  display: none; /* Hides the clear button */
+}
+
+.shad{
+  box-shadow:0.1px 0.1px 10px #3563E9;
 }
