@@ -35,7 +35,7 @@ const Popular = () => {
             {/* 3 */}
             <Card
             red='hidden'
-            src='/images/home/popular/car3.png'
+            src='/images/home/popular/car1.png'
             carName={'Rolls - Royce'}
             modelName='sedan'
             rent='99'

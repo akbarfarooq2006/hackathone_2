@@ -11,7 +11,7 @@ const SideBar = ({className}:{className?:string}) => {
     <div className='flex flex-col  h-full gap-y-8'>
         {/* type all */}
         {/* 1 */}
-        <div className='flex flex-col gap-y-2'>
+        <div className='flex flex-col gap-y-3'>
             <h3 className='uppercase text-xs text-button3 font-semibold tracking-widest mb-2'> type</h3>
             <Select
             label='Sport'
