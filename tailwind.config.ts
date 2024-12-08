@@ -14,7 +14,8 @@ export default {
         // extra
         primary:"#F6F7F9", //light white ike gray
         secondary:"#ffffff",
-        secondary2:"C3D4E9",
+        secondary2:"#C3D4E9",
+        seconday3:"#1A202C",//light black
         button1:"#3563E9",//blue
         button2:"#ED3F3F",///redidh
         button3:"#90A3BF",//light gray

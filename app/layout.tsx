@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import Footer from "@/components/footer/Footer";
 
 
 const jarka = Plus_Jakarta_Sans({
@@ -38,6 +39,7 @@ export default function RootLayout({
           `}
       >
         {children}
+        <Footer/>
       </body>
     </html>
   );
