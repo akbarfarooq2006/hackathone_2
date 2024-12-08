@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa6";
 import { BiSolidBell } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 
@@ -17,7 +18,7 @@ const Header1 = () => {
 
      {/* head and search outer  & side1*/}
      <div className='flex items-center md:gap-x-16 gap-x-9'>
-        <h1 className='text-[32px] font-bold uppercase text-button1'>morent</h1>
+        <Link href={'/'}><h1 className='text-[32px] font-bold uppercase text-button1'>morent</h1></Link>
         {/* search outer */}
         <div className='sm:flex hidden items-center border-[1px] border-secondary2/40 rounded-full h-auto px-3 py-1'>
             <CiSearch/>

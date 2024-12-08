@@ -6,20 +6,21 @@ import { BiSolidBell } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 
 const Header2 = () => {
   return (
 <>
-<div className='relative w-full inline-block'>
-<div className='fixed top-0 w-full '>
+<div className=' w-full  '>
+<div className=' '>
 
-    <div className='bg-secondary sticky top-0 z-20 px-5 py-2  flex items-center  justify-between w-full '>
+    <div className='bg-secondary px-5 py-2  flex items-center  justify-between w-full '>
      {/* head and search outer  & side1*/}
-     <div className='flex items-center md:gap-x-16 gap-x-9'>
+     <div className='flex items-center md:gap-x-16 sm:gap-x-9 gap-x-0'>
         {/* logo */}
-        <h1 className='text-[32px] sm:inline-block hidden font-bold uppercase text-button1'>morent</h1>
+       <Link href={'/'}><h1 className='text-[32px] sm:inline-block hidden font-bold uppercase text-button1'>morent</h1></Link> 
         <button className='sm:hidden inline-block '>
           <RxHamburgerMenu className='text-2xl'/>
         </button>
@@ -59,7 +60,7 @@ const Header2 = () => {
 {/* on mobile changing */}
     {/* in logo  on name */}
     <div className='bg-secondary w-full pb-2 px-5 sm:hidden inline-block'>
-    <h1 className='sm:text-[32px] text-[28px]   font-bold uppercase text-button1'>morent</h1>
+    <Link href={'/'}><h1 className='sm:text-[32px] text-[28px]   font-bold uppercase text-button1'>morent</h1></Link>
     </div>
     {/* in mbile search outer  */}
     <div className='flex sm:hidden  items-center justify-center gap-x-4 bg-secondary   h-auto w-full pb-4 px-5'>

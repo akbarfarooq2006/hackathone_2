@@ -5,11 +5,10 @@ import React from 'react'
 const page = () => {
   return (
 <>
-<div>
+<div className='relative '>
     <Header2/>
    <Category/>
 
-    <div className='h-[200vh]'></div>
 </div>
 </>
 )

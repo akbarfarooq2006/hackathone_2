@@ -9,7 +9,7 @@ type gg ={
 const PickUp:React.FC<gg> = ({title}) => {
   return (
 <>
-<div className='bg-secondary rounded-lg flex flex-col gap-y-3 p-6'>
+<div className='bg-secondary rounded-lg flex flex-col gap-y-3 p-6 w-full'>
     {/* buller pick up */}
     <div className='flex flex-row items-center gap-2'>
       <span className='bg-ad1/20  -z-0 h-4 w-4 rounded-full   grid place-items-center'>
