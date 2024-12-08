@@ -13,7 +13,7 @@ const CategoryHeader:React.FC<ff> = ({head,className,link}) => {
   return (
 <div className='bg-transparent flex items-center justify-between'>
   <h2 className='text-base text-button3 font-semibold capitalize'>{head}</h2>
-  <Link href={'/'} className={`text-button1 text-base font-semibold capitalize ${className}`}>{link}</Link>
+  <Link href={'/categories'} className={`text-button1 text-base font-semibold capitalize ${className}`}>{link}</Link>
 </div>
 )
 }
