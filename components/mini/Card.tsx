@@ -69,7 +69,7 @@ const Card: React.FC<tt> = ({ red, outline,card,carName,modelName,rent,src,offPr
                 <p className="text-xl font-bold">${rent}.00/<span className="text-sm text-button3 font-bold">day</span></p>
                 <p className={`text-xs text-button3 line-through font-medium ${isdiscount}`}>${offPrice}.00</p>
               </div>
-              <Link href={"/"}>
+              <Link href={"/rent_detail"}>
                 <button className="capitalize bg-button1 px-4 py-2 rounded text-secondary font-semibold text-sm">
                   rent now
                 </button>

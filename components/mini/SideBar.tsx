@@ -1,12 +1,14 @@
 import React from 'react'
-import Select from '../mini/Select'
+import Select from './Select'
+import Header2 from '../header/Header2'
 
-const SideBar = () => {
+const SideBar = ({className}:{className?:string}) => {
   return (
 <>
-<div className='bg-secondary  w-56  h-[100%] inline-block '>
-    <div className='pt-8 px-3'>
-    <div className='flex flex-col  gap-y-8'>
+
+<div className={`bg-secondary  w-56   max-h-full ${className}`}>
+    <div className='py-8 px-3 h-full '>
+    <div className='flex flex-col  h-full gap-y-8'>
         {/* type all */}
         {/* 1 */}
         <div className='flex flex-col gap-y-2'>
