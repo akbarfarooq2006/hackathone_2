@@ -9,12 +9,14 @@ import InputSelect from "../mini/InputSelect";
 const Rent_now = () => {
   return (
     <>
-      <div className="mt-10">
+      <div className="my-10">
         <div className="mx-5">
           {/* main grid which divides both side1 and side2 */}
           <div className="flex bd:flex-row flex-col gap-5 ">
+
+
             {/* side 1 */}
-            <div className=" bd:w-[65%] w-full bg-green-400 bd:order-1 order-2 flex flex-col gap-y-5">
+            <div className=" bd:w-[65%] w-full  bd:order-1 order-2 flex flex-col gap-y-5">
               {/*Inside side-1 4 div will be  */}
 
               {/* billing info */}
@@ -81,9 +83,6 @@ const Rent_now = () => {
                 </div>
 
               </div>
-
-
-              {/*  */}
             </div>
 
 

@@ -8,7 +8,6 @@ const page = () => {
 <div>
     <Header1/>
     <Rent_now/>
-    <div className='h-screen'></div>
 </div>
  </> 
 )}
