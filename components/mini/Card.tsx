@@ -22,7 +22,7 @@ type tt = {
 const Card: React.FC<tt> = ({ red, outline,card,carName,modelName,rent,src,offPrice,isdiscount}) => {
   return (
     <>
-      <div className={`sm:inline-block ${card}`}>
+      <div className={`sm:inline-block ${card} hover:scale-105 down`} >
         <div className="bg-secondary h-full p-4 rounded-[10px] flex flex-col justify-center gap-y-12">
           {/* card head outer */}
           <div className="flex flex-col ">
@@ -70,8 +70,8 @@ const Card: React.FC<tt> = ({ red, outline,card,carName,modelName,rent,src,offPr
                 <p className={`text-xs text-button3 line-through font-medium ${isdiscount}`}>${offPrice}.00</p>
               </div>
               <Link href={"/rent_detail"}>
-                <button className="capitalize bg-button1 px-4 py-2 rounded text-secondary font-semibold text-sm">
-                  rent now
+                <button className="capitalize bg-button1   px-4 py-2 rounded text-secondary font-semibold text-sm hover:scale-[1.01] down grid place-items-center hover:bg-button1/85 transform-gpu  overflow-hidden">
+                   rent now 
                 </button>
               </Link>
             </div>

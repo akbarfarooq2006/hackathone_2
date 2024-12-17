@@ -21,6 +21,7 @@ export default {
         button3:"#90A3BF",//light gray
         button4:"#596780",//dark gray
         ad1:"#54A6FF",//light blue
+        dot2:"#5CAFFC4D",//light blue dot
       },
       fontFamily: {
         jarka: ['var(--font-PlusJakartaSans)'],

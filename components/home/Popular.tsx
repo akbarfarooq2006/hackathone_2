@@ -12,7 +12,7 @@ const Popular = () => {
         link='view all'
         />
         {/* all cards */}
-        <div className='grid lg:grid-cols-4 lg:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2  gap-3 '>
+        <div className='grid lg:grid-cols-4 lg:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2  gap-5  '>
             {/* 1 */}
             <Card
             red='hidden'

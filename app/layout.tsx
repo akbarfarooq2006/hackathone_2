@@ -33,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="shortcut icon" href="/favicon/ic.png" type="image/x-icon" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased
           ${jarka.variable}

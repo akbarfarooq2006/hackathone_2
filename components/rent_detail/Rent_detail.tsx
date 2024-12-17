@@ -60,7 +60,7 @@ const Rent_detail = () => {
                </div>
             </div>
             {/* ratings and details */}
-            <div className='bg-secondary py-3 px-4 rounded-[10px]'>
+            <div className='bg-secondary py-3 px-4 rounded-[10px] relative'>
                 <div className=' flex flex-col justify-around h-full'>
                   {/* head */}
                   <div>
@@ -111,12 +111,12 @@ const Rent_detail = () => {
                       $80.00/ 
                       <span className='text-button3 text-lg '>days</span>
                     </h4>
-                    <Link href={'/rent_detail'} className='text-sm font-semibold text-secondary bg-button1 px-4 py-2 rounded'>Rent Now</Link>      
+                    <Link href={'/rent_now'} className='text-sm font-semibold text-secondary bg-button1 px-4 py-2 rounded'>Rent Now</Link>      
                   </div>
 
               </div>  
+              <FaHeart className='text-button2 text-xl absolute top-4 right-4'/>
             </div>
-            <FaHeart className='text-button2 text-xl absolute top-4 right-4'/>
 
         </div>
         {/* message */}

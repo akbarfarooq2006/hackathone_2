@@ -44,7 +44,7 @@ const Category = () => {
           >
             <UpDrop />
             {/* all cards */}
-            <div className="grid lg:grid-cols-3 lg:grid-rows-3 sm:grid-cols-2 sm:grid-rows-5 grid-cols-1 grid-rows-9 md:gap-3 gap-2">
+            <div className="grid lg:grid-cols-3 lg:grid-rows-3 sm:grid-cols-2 sm:grid-rows-5 grid-cols-1 grid-rows-9 md:gap-5 gap-4">
               {/* 1 */}
               <Card
                 red="hidden"
@@ -131,7 +131,7 @@ const Category = () => {
         {/* button */}
         <div className="flex items-center justify-center mt-8 mb-12">
             <Link href={'/'}
-            className="bg-button1 sm:text-base text-xs rounded text-secondary px-4 py-2">
+            className="bg-button1 sm:text-base text-xs rounded text-secondary px-4 py-2  hover:scale-105 down grid place-items-center hover:bg-button1/85 transform-gpu  overflow-hidden">
             Show More Cars</Link>
         </div>
         </div>
