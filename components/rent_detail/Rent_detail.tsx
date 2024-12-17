@@ -1,6 +1,5 @@
 import React from 'react'
 import SideBar from '../mini/SideBar'
-import Select from '../mini/Select'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaStar,FaRegStar } from "react-icons/fa";
