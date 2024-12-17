@@ -28,7 +28,7 @@ const Rent_now = () => {
                   pages="1"
                 />
                 {/* form of billing */}
-                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-4 bd:gap-6 gap-5">
+                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-3 bd:gap-6 gap-5">
                   <BillingInputs label="name" placeholder="Your name" />
                   <BillingInputs
                     label="phone number"
@@ -58,7 +58,7 @@ const Rent_now = () => {
                     >Pick-Up</h4>
                 </div>
                 {/* formr */}
-                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-4 bd:gap-6 gap-5">
+                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-3 bd:gap-6 gap-5">
                   <InputSelect label="Locations" placeholder="Select your city" />
                   <InputSelect label="time" placeholder="Select your time"/>
                   <InputSelect label="date" placeholder="Select your date" />
@@ -75,7 +75,7 @@ const Rent_now = () => {
                     >Drop-Off</h4>
                 </div>
                 {/* formr */}
-                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-4 bd:gap-6 gap-5">
+                <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-3 bd:gap-6 gap-5">
                   <InputSelect label="Locations" placeholder="Select your city" />
                   <InputSelect label="time" placeholder="Select your time"/>
                   <InputSelect label="date" placeholder="Select your date" />
