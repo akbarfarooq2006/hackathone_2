@@ -71,9 +71,9 @@ const Cards = ({item,data}:{item:products,data?:()=>void}) => {
                   //   await likeHandle(item._id , !isActive) // Uncomment to enable like/dislike functionality
                   //  }}
                   onClick={toggleHeart}
-                   className={`text-lg cursor-pointer  ${isActive ||item.islike ? 'text-red-600' : 'text-gray-700'}`}
+                   className={`text-lg cursor-pointer  ${isActive  ? 'text-red-600' : 'text-gray-700'}`}
                   >
-                    { isActive || item.islike ? (<AiFillHeart className="text-red-600 down"/> ) : (<AiOutlineHeart className="text-gray-700 down" />)}  {/* Filled or outline heart */}
+                    { isActive  ? (<AiFillHeart className="text-red-600 down"/> ) : (<AiOutlineHeart className="text-gray-700 down" />)}  {/* Filled or outline heart */}
                 </button>
               </div>
             </div>

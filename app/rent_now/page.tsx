@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from 'react';
 
 import Header1 from '@/components/header/Header1'
 import Rent_now from '@/components/rent_final/Rent_now'
@@ -27,7 +28,10 @@ console.log(carId)
 
   <Header1/>
   {/* <Rent_now/> */}
-  {/* <Rent_now_copy/> */}
+  <Suspense fallback={<div>Loading...</div>}>
+      
+  <Rent_now_copy/>
+    </Suspense>
   
 </div>
  </> 
