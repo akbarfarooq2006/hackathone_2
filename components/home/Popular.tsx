@@ -10,6 +10,7 @@ export async function getData2() {
     id,
     _id,
     name,
+    islike
     description,
     available,
     brand,

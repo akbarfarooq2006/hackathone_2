@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input"
 
   
 type rr={
-    label: string,
-    placeholder: string,
+    label?: string,
+    placeholder?: string,
     bg_color?:string,
     name?: string,
     type?: string,

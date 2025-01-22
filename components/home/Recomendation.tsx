@@ -14,6 +14,7 @@ export async  function getData() {
     id,
     _id,
     name,
+    islike,
     description,
     available,
     type,
