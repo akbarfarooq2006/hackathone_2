@@ -13,7 +13,7 @@ const FormHeader:React.FC<rr> = ({headings,title,pages,className}) => {
         </h4>
         <div className='flex flex-row items-center justify-between'>
             <p className='text-button3 md:text-sm text-xs font-medium tracking-tight'>{title}</p>
-            <p className={`text-button3 md:text-sm text-xs font-medium tracking-wide ${className}`}>Step{pages}of4</p>
+            <p className={`text-button3 md:text-sm text-xs font-medium tracking-wide ${className}`}>Step{pages}of2</p>
         </div>
     </div>
   )

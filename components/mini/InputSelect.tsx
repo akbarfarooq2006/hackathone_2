@@ -11,7 +11,7 @@ const InputSelect:React.FC<rr> = ({label,placeholder,bg_color='bg-primary'}) => 
     <div className='flex flex-col gap-y-3 '>
         <label htmlFor="aa" className='capitalize md:text-base  text-sm font-semibold text-seconday3 '>{label}</label>
        <div className='cursor-pointer relative'> 
-    <select name="nn"id="aa"
+    <select name="nn" id="aa"
       className="bg-primary text-button3 md:text-sm text-xs relative sm:px-7 px-5 py-3 w-full appearance-none rounded-lg focus:outline-none border-[1px] border-button1/0 focus:border-button1/100">
       <option value={placeholder} className="sm:px-7 px-5 py-3">
         {placeholder}

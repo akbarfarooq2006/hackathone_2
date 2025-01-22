@@ -44,6 +44,7 @@ const Card: React.FC<tt> = ({ red, outline,card,carName,modelName,rent,src,offPr
               alt="/"
               width={200}
               height={200}
+              style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
             />
           </div>
           {/* all details */}

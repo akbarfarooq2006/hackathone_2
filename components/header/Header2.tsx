@@ -9,13 +9,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {
-  click?: () => void;
-};
 
 
 
-const Header2:React.FC<Props> = ({click}) => {
+
+const Header2 = () => {
   return (
 <>
 <div className=' w-full  '>
@@ -26,7 +24,7 @@ const Header2:React.FC<Props> = ({click}) => {
      <div className='flex items-center md:gap-x-16 gap-x-0'>
         {/* logo */}
        <Link href={'/'}><h1 className='text-[32px] md:inline-block hidden font-bold uppercase text-button1'>morent</h1></Link> 
-        <button className='md:hidden inline-block ' onClick={click}>
+        <button className='md:hidden inline-block ' >
           <RxHamburgerMenu className='text-2xl'/>
         </button>
 

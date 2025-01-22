@@ -5,11 +5,19 @@ import Link from 'next/link'
 import { FaStar,FaRegStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import CategoryHeader from '../header/CategoryHeader'
-import Card from '../mini/Card'
+import Card from '../delete_component/Card'
+import { products } from '@/types/products';
+import { urlFor } from '@/sanity/lib/image';
 
+const formatPrice = (price: number | string): string => {
+  const numericPrice = typeof price === "string" ? parseFloat(price.replace(/[^0-9.]/g, "")) : price;
+  return `${numericPrice.toLocaleString("en-US")}`;
+};
 
+const Rent_detail = ({item}:{item:products}) => {
+// yaha mene wo oblject is prop me hasil kya
+  // localStorage.setItem('rentalData', JSON.stringify(item));
 
-const Rent_detail = () => {
   return (
 <>
 <div className='h-full'>
@@ -22,9 +30,9 @@ const Rent_detail = () => {
       <div className='w-full flex flex-col gap-y-4'>
         {/* file--1 */}
         <div className='grid bd:grid-cols-2 bd:grid-rows-1 grid-rows-2 grid-cols-1  gap-3 relative mt-4'>
-            {/* ads */}
+          {/* ads */}
             <div className='flex flex-col gap-y-3'>
-              {/* big image */}
+                {/* big image */}
               <div className='bg-button1 rounded-[10px] px-5 py-5 flex flex-col gap-y-3'>
                 {/* content */}
                 <div className='w-[90%] flex flex-col gap-y-4'>
@@ -35,26 +43,28 @@ const Rent_detail = () => {
                 {/* image */}
                 <div className='grid place-items-center'>
                   <Image
-                  src={'/images/home/recomendation/Car6.png'}
-                  alt='/'
-                  width={300}
+                  src={urlFor(item.image).url()}
+                  alt={item.id}
+                  width={270}
                   height={300}
+                  style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
                   />
                 </div>  
               </div>
               {/* 3 image */}
                <div className=' grid grid-cols-3 gap-3'>
-                  <div className={`h-32 w-full rounded-[10px] grid place-items-center bg-button1`}>
+                  <div className={`h-32 w-full px-1 rounded-[10px] grid place-items-center bg-button1`}>
                     <Image
-                    src={'/images/home/recomendation/Car6.png'}
+                    src={urlFor(item.image).url()}
                     alt='/'
                     width={300}
                     height={300}
+                    style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
                     />
                   </div>
-                  <div className="h-32 bg-cover bg-center bg-[url('/images/rent/car1.png')] rounded-[10px]">
+                  <div className="h-32 bg-cover bg-center w-auto  bg-[url('/images/rent/car1.png')] rounded-[10px]" style={{ width: 'auto', height: 'auto' }}>
                   </div>
-                  <div className="h-32 bg-cover bg-center bg-[url('/images/rent/car2.png')] rounded-[10px]">
+                  <div className="h-32 bg-cover bg-center w-auto bg-[url('/images/rent/car2.png')] rounded-[10px]"  style={{ width: 'auto', height: 'auto' }}>
                   </div>
                
                </div>
@@ -64,7 +74,7 @@ const Rent_detail = () => {
                 <div className=' flex flex-col justify-around h-full'>
                   {/* head */}
                   <div>
-                  <h1 className='text-[32px] font-bold'>Nissan GT - R</h1>
+                  <h1 className='text-[32px] font-bold'>{item.name}</h1>
                   {/* rating stars */}
                   <div className='flex items-center gap-x-2'>
                     <span className='flex items-center gap-x-0.5'>
@@ -80,38 +90,39 @@ const Rent_detail = () => {
                   </div>
                   {/* paragarph */}
                   <div>
-                    <p className='text-button3 text-lg'>NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the "race track".</p>
+                    <p className='text-button3 text-lg'>
+                      {item.description}
+                    </p>
                   </div>
                   {/*  capacity*/}
                   <div className='grid grid-cols-2 gap-x-10'>
                     <div className='flex flex-col gap-y-3'>
                       <span className='flex items-center justify-between'>
                         <h2 className='text-button3 capitalize'>type car</h2>
-                        <p className='text-black font-medium/70'>Sport</p>
+                        <p className='text-black font-medium/70'>{item.type}</p>
                       </span>
                       <span className='flex items-center justify-between'>
                         <h2 className='text-button3 capitalize'>steering</h2>
-                        <p className='text-black/70 font-medium'>Manual</p>
+                        <p className='text-black/70 font-medium'>{item.transmission}</p>
                       </span>
                     </div>
                     <div className='flex flex-col gap-y-3'>
                       <span className='flex items-center justify-between'>
                         <h2 className='text-button3 capitalize'>capacity</h2>
-                        <p className='text-black font-medium/70'>2Person</p>
+                        <p className='text-black font-medium/70'>{item.seatingCapacity}</p>
                       </span>
                       <span className='flex items-center justify-between'>
                         <h2 className='text-button3 capitalize'>gasoline</h2>
-                        <p className='text-black/70 font-medium'>70L</p>
+                        <p className='text-black/70 font-medium'>{item.fuelCapacity}</p>
                       </span>
                     </div>
                   </div> 
                   {/* rates amd rent */}
                   <div className='flex justify-between items-center'>
                     <h4 className=' flex items-center text-[28px] font-semibold'>
-                      $80.00/ 
-                      <span className='text-button3 text-lg '>days</span>
+                    {formatPrice(item.pricePerDay)}  <span className='text-button3 text-base font-semibold '>   PKR/days</span>
                     </h4>
-                    <Link href={'/rent_now'} className='text-sm font-semibold text-secondary bg-button1 px-4 py-2 rounded'>Rent Now</Link>      
+                    <Link href={`/rent_now?cars=${item.id}`} className='text-sm font-semibold text-secondary bg-button1 px-4 py-2 rounded'>Rent Now</Link>      
                   </div>
 
               </div>  
@@ -119,6 +130,7 @@ const Rent_detail = () => {
             </div>
 
         </div>
+
         {/* message */}
         <div className='bg-secondary flex flex-col gap-y-4 px-4 py-3 rounded-[10px] w-full mt-4 '>
             <div className='flex items-center gap-x-2'>
@@ -130,7 +142,7 @@ const Rent_detail = () => {
             {/* part 1 */}
             <div className='flex flex-row gap-x-3'>
                 {/* pro1 */}
-                <div className='bg-[url("/images/rent/pro1.jpg")] bg-cover h-12 w-12 rounded-full'>
+                <div className='bg-[url("/images/rent/pro1.jpg")]  bg-cover h-12 w-12 rounded-full'  style={{ width: 'auto', height: 'auto' }} >
                 </div>
                 {/*content */}
                 <div className='flex-1'>
@@ -165,7 +177,7 @@ const Rent_detail = () => {
             {/* part 2 */}
             <div className='flex flex-row gap-x-3'>
                 {/* pro1 */}
-                <div className='bg-[url("/images/rent/pro2.jpg")] bg-cover h-12 w-12 rounded-full'>
+                <div className='bg-[url("/images/rent/pro2.jpg")] bg-cover h-12 w-12 rounded-full'   style={{ width: 'auto', height: 'auto' }} >
                 </div>
                 {/*content */}
                 <div className='flex-1'>

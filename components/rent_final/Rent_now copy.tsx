@@ -1,21 +1,37 @@
-
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import DotBluePoints from "../mini/DotBluePoints";
 import FormHeader from "../header/FormHeader";
 import BillingInputs from "../mini/BillingInputs";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import Image from "next/image";
 import InputSelect from "../mini/InputSelect";
+import PickUp from "../mini/PickUp";
 
 
 
-const Rent_now = () => {
+const Rent_now_copy = () => {
+const [rentalinfo, setrentalinfo] = useState(
+  {
+    name:'',
+    phone:'',
+    email:'',
+    address:'',
+    PickUp_date:'',
+    Drop_off_date:'',
+    PickUp_time:'',
+    totalduration:''
+    
 
-  // const data = localStorage.getItem('rentalData');
-  // if (data) {
-  //   const rentalData = JSON.parse(data);
-  //   console.log(rentalData)
-  // };
+  }
+)
+console.log(rentalinfo)
+function handleChange(e:any) {
+  const {name,value}=  e.target
+  setrentalinfo({...rentalinfo, [name]: value}) 
+}
+
+
 
   return (
     <>
@@ -29,25 +45,58 @@ const Rent_now = () => {
             <div className="  w-full  bd:order-1 order-2 flex flex-col gap-y-5">
               {/*Inside side-1 4 div will be  */}
 
+          {/* starting form */}
+          <form >
+            <div className="flex flex-col gap-y-5">
               {/* billing info */}
               <div className="bg-secondary rounded-xl px-4 py-5 flex flex-col gap-y-8">
-                {/* header form */}
+                  {/* header form */}
                 <FormHeader
                   headings="Billing Info"
                   title="Please enter your billing info"
                   pages="1"
                 />
-                {/* form of billing */}
+                {/*  personal info Input */}
                 <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-3 bd:gap-6 gap-5">
-                  <BillingInputs label="name" placeholder="Your name" />
-                  <BillingInputs
-                    label="phone number"
-                    placeholder="Phone number"
+                    <BillingInputs
+                    label="Name"
+                    placeholder="Your Name"
+                    change={handleChange}
+                    name="name"
+                    value={rentalinfo.name}
+                    type="text"
                   />
-                  <BillingInputs label="address" placeholder="Address" />
-                  <BillingInputs label="town/city" placeholder="Town or city" />
+                    <BillingInputs
+                    label="Phone Number"
+                    placeholder="Phone Number"
+                    change={handleChange}
+                    name="phone"
+                    type="tel"
+                    value={rentalinfo.phone}
+                    pattern="[0-9]{4}-[0-9]{7}"
+                  />
+                    <BillingInputs
+                    label="Address"
+                    placeholder="Enter Your Address"
+                    change={handleChange}
+                    name="address"
+                    value={rentalinfo.address}
+                    type="text"
+                  />
+                    <BillingInputs
+                    label="Email"
+                    value={rentalinfo.email}
+                    placeholder="Enter Your Email"
+                    change={handleChange}
+                    name="email"
+                    type="email"
+                  />
+
                 </div>
               </div>
+
+
+
 
               {/* Rental info */}
               <div className="bg-secondary rounded-xl px-4 py-5 flex flex-col gap-y-8">
@@ -59,7 +108,7 @@ const Rent_now = () => {
                 />
                 {/* form of billing 1 rental info*/}
                 <div className="flex flex-col gap-y-6">
-                {/* picup */}
+                    {/* picup */}
                 <div className="flex flex-row gap-2 items-center">
                     <DotBluePoints
                     dot2="hidden"
@@ -67,8 +116,16 @@ const Rent_now = () => {
                     <h4 className="text-base font-semibold text-seconday3"
                     >Pick-Up</h4>
                 </div>
-                {/* formr */}
+                    {/* formr */}
                 <div className="grid sm:grid-cols-2 sm:grid-rows-2 grid-cols-1 grid-rows-3 bd:gap-6 gap-5">
+                <BillingInputs
+                    label="Locations"
+                    placeholder="Your Name"
+                    change={handleChange}
+                    name="name"
+                    value={rentalinfo.name}
+                    type="text"
+                  />
                   <InputSelect label="Locations" placeholder="Select your city" />
                   <InputSelect label="time" placeholder="Select your time"/>
                   <InputSelect label="date" placeholder="Select your date" />
@@ -93,7 +150,13 @@ const Rent_now = () => {
                 </div>
 
               </div>
-            </div>
+             </div> 
+          </form>
+
+       </div>
+       {/* side 1 ends */}
+
+
 
 
             {/* side 2  */}
@@ -113,6 +176,7 @@ const Rent_now = () => {
                     alt="/"
                     width={120}
                     height={80}
+                    style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
                   />
                 </div>
                 {/* heading and rating */}
@@ -174,4 +238,4 @@ const Rent_now = () => {
   );
 };
 
-export default Rent_now;
+export default Rent_now_copy;

@@ -1,8 +1,35 @@
 import React from 'react'
 import CategoryHeader from '../header/CategoryHeader';
-import Card from '../mini/Card';
+import { client } from '@/sanity/lib/client';
+import { products } from '@/types/products';
+import Cards from '../mini/Cards';
 
-const Popular = () => {
+export async function getData2() {
+   const query = `*[_type =='products' && "popular" in tags ] {
+   name,
+    id,
+    _id,
+    name,
+    description,
+    available,
+    brand,
+    type,
+    fuelCapacity,
+    transmission,
+    seatingCapacity,
+    pricePerDay,
+    image,
+    tags,
+  }`;
+  const res = await client.fetch(query)
+  return res;
+}
+
+const Popular  = async () => {
+
+  const data = await getData2()
+  // console.log(data)
+
   return (
 <>
  <div className='mt-7 w-full'>
@@ -13,46 +40,12 @@ const Popular = () => {
         />
         {/* all cards */}
         <div className='grid lg:grid-cols-4 lg:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2  gap-5  '>
-            {/* 1 */}
-            <Card
-            red='hidden'
-            src='/images/home/popular/car1.png'
-            carName={'Koenigsegg'}
-            modelName='sport'
-            rent='99'
-            offPrice=''
-            isdiscount='hidden'
-            />
-            {/* 2 */}
-            <Card
-            outline='hidden'
-            src='/images/home/popular/car2.png'
-            carName={'Nissan GT-R'}
-            modelName='sport'
-            rent='80'
-            offPrice='100'
-            />
-            {/* 3 */}
-            <Card
-            red='hidden'
-            src='/images/home/popular/car1.png'
-            carName={'Rolls - Royce'}
-            modelName='sedan'
-            rent='99'
-            isdiscount='hidden'
-            card='hidden'
-            />
-            {/* 4 */}
-            <Card
-            outline='hidden'
-            src='/images/home/popular/car4.png'
-            carName={'Nissan GT - R'}
-            modelName='sport'
-            rent='99'
-            offPrice='100'
-            card='hidden'
-            />
-            
+           {data.map((items:products) =>{
+            return(
+              <Cards key={items._id}  item={items}/>
+            )
+           }
+           )}
         </div>
 
 
@@ -63,7 +56,6 @@ const Popular = () => {
  </div>
 
 </>
-
 )
 }
 

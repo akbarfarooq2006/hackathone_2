@@ -1,0 +1,16 @@
+export interface products{
+    id: string,
+    _id: string,
+    islike:boolean,
+    name: string,
+    description: string,
+    available: boolean,
+    brand:string,
+    type:string,
+    fuelCapacity:string,
+    transmission:string,
+    seatingCapacity:string,
+    pricePerDay: number,
+    image: string,
+    tags: string[],
+}
