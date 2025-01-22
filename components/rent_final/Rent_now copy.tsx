@@ -11,7 +11,7 @@ import PickUp from "../mini/PickUp";
 
 
 
-const Rent_now_copy = () => {
+const Rent_now_copy = ({carId}:{carId:string}) => {
 const [rentalinfo, setrentalinfo] = useState(
   {
     name:'',

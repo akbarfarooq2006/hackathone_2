@@ -27,20 +27,6 @@ const Cards = ({item,data}:{item:products,data?:()=>void}) => {
   const [isActive, setIsActive] = useState<boolean>(item.islike); // Initialize with item.islike
 
 
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //    getData()
-  //    getData2()
-  //   };
-  //   fetchData(); // Calling the async function inside useEffect
-  // }, []); // Only re-run if data changes
-
-
-  // const toggleHeart = () => {
-  //   setIsActive(!isActive);
-  //   console.log(!isActive,'hello world')
-  // }
   const toggleHeart = async () => {
     const newLikeState = !isActive;
     console.log(item.islike ,'helo')
@@ -62,14 +48,7 @@ const Cards = ({item,data}:{item:products,data?:()=>void}) => {
             <div className="flex items-center justify-between ">
               <h2 className="capitalize text-xl text-black font-bold">{item.name}{item.islike}</h2>
               <div className="flex">
-                {/* <AiOutlineHeart className={`text-button3 text-xl `} /> i hae commit outline */}
-                {/* <AiFillHeart className={`text-button2  text-xl `} /> */}
                 <button
-                  //  onClick={async()=>{  
-
-                  //   toggleHeart()
-                  //   await likeHandle(item._id , !isActive) // Uncomment to enable like/dislike functionality
-                  //  }}
                   onClick={toggleHeart}
                    className={`text-lg cursor-pointer  ${isActive  ? 'text-red-600' : 'text-gray-700'}`}
                   >

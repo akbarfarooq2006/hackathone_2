@@ -8,6 +8,7 @@ import CategoryHeader from '../header/CategoryHeader'
 import Card from '../delete_component/Card'
 import { products } from '@/types/products';
 import { urlFor } from '@/sanity/lib/image';
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const formatPrice = (price: number | string): string => {
   const numericPrice = typeof price === "string" ? parseFloat(price.replace(/[^0-9.]/g, "")) : price;
@@ -126,7 +127,9 @@ const Rent_detail = ({item}:{item:products}) => {
                   </div>
 
               </div>  
-              <FaHeart className='text-button2 text-xl absolute top-4 right-4'/>
+              {/* like view */}
+                {/* <FaHeart className='text-button2 text-xl absolute top-4 right-4'/> */}
+                { item.islike  ? (<AiFillHeart className="text-red-600 down text-xl absolute top-4 right-4"/> ) : (<AiOutlineHeart className="text-gray-700 down text-xl absolute top-4 right-4" />)}  {/* Filled or outline heart */}
             </div>
 
         </div>
