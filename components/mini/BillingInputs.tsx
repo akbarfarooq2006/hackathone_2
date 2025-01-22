@@ -9,12 +9,12 @@ type rr={
     label: string,
     placeholder: string,
     bg_color?:string,
-    name: string,
-    type: string,
+    name?: string,
+    type?: string,
     min?:string,
-    change:(e:any)=>void,
+    change?:(e:any)=>void,
     pattern?:string,
-    value:string,
+    value?:string,
 }
 
 const BillingInputs:React.FC<rr> = ({value,pattern,change, min,label,type='text', placeholder,name,bg_color='bg-primary'}) => {
