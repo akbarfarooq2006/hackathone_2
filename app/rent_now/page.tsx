@@ -27,7 +27,7 @@ console.log(carId)
 
   <Header1/>
   {/* <Rent_now/> */}
-  <Rent_now_copy/>
+  {/* <Rent_now_copy/> */}
   
 </div>
  </> 

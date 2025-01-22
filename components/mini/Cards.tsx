@@ -10,8 +10,7 @@ import { products } from "@/types/products";
 import { urlFor } from "@/sanity/lib/image";
 import { useState,useEffect } from "react";// Importing Font Awesome heart icons
 import { likeHandle } from "@/action/like";
-import { getData } from "../home/Recomendation";
-import { getData2 } from "../home/Popular";
+
   
 
  
@@ -28,14 +27,14 @@ const Cards = ({item,data}:{item:products,data?:()=>void}) => {
   const [isActive, setIsActive] = useState<boolean>(item.islike); // Initialize with item.islike
 
 
-  const [sanityActive, setsanityActive] = useState(false)
-  useEffect(() => {
-    const fetchData = async () => {
-     getData()
-     getData2()
-    };
-    fetchData(); // Calling the async function inside useEffect
-  }, []); // Only re-run if data changes
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //    getData()
+  //    getData2()
+  //   };
+  //   fetchData(); // Calling the async function inside useEffect
+  // }, []); // Only re-run if data changes
 
 
   // const toggleHeart = () => {

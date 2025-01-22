@@ -9,11 +9,12 @@ import { products } from '@/types/products';
 async function getData(id: string){ // ye raha function jo nicche call howa jis me hum ne wo id daali he 
   //yaha wo id receive hogi
   try{
-  const query = `*[_type == "products" && id == "${id}"][0] { // yaha hum check kr rahe he jo jo id  sanity me he wo is hamari wali matach wo wala data do
+  const query = `*[_type == "products" && id == "${id}"][0] {
     name,
     id,
     description,
     available,
+    islike,
     brand,
     type,
     fuelCapacity,
@@ -23,7 +24,7 @@ async function getData(id: string){ // ye raha function jo nicche call howa jis 
     image,
     tags,
   }`;
-  const res = await client.fetch(query );// yaha hume wo object data mile ge jo us id se match kri sirf matlab agr product_1 pr click he tu yaha product one ki object return hogi
+  const res = await client.fetch(query);// yaha hume wo object data mile ge jo us id se match kri sirf matlab agr product_1 pr click he tu yaha product one ki object return hogi
    return res 
 
   }catch(error){
@@ -48,7 +49,7 @@ const id = (await params).id
 
 
 const data:products  = await getData(id) // upar wali id kois function me paas kre ge jo dynaimc aa rahi he
-console.log(data,'data helo') // yaha hum wo mile dekho
+// console.log(data,'data helo') // yaha hum wo mile dekho
 
 
   return (

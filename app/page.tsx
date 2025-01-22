@@ -14,7 +14,6 @@ export default function Home() {
   <FrontAds/>
 <UpDrop/>
 <Popular/>
-<Popular/>
 <Recomendation/>
 
 

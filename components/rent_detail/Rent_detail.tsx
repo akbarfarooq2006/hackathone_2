@@ -47,19 +47,19 @@ const Rent_detail = ({item}:{item:products}) => {
                   alt={item.id}
                   width={270}
                   height={300}
-                  style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
+                  // style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
                   />
                 </div>  
               </div>
               {/* 3 image */}
                <div className=' grid grid-cols-3 gap-3'>
-                  <div className={`h-32 w-full px-1 rounded-[10px] grid place-items-center bg-button1`}>
+                  <div className={`h-32 px-5 w-full  rounded-[10px] grid place-items-center bg-button1`}>
                     <Image
                     src={urlFor(item.image).url()}
                     alt='/'
-                    width={300}
+                    width={200}
                     height={300}
-                    style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
+                    // style={{ width: 'auto', height: 'auto' }} // CSS se adjust karo
                     />
                   </div>
                   <div className="h-32 bg-cover bg-center w-auto  bg-[url('/images/rent/car1.png')] rounded-[10px]" style={{ width: 'auto', height: 'auto' }}>

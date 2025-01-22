@@ -3,32 +3,31 @@ import CategoryHeader from '../header/CategoryHeader';
 import { client } from '@/sanity/lib/client';
 import { products } from '@/types/products';
 import Cards from '../mini/Cards';
-
-export async function getData2() {
-   const query = `*[_type =='products' && "popular" in tags ] {
+async  function getData() {
+    
+  const query = `*[_type =='products' && "popular" in tags ] {
+  name,
+   id,
+   _id,
    name,
-    id,
-    _id,
-    name,
-    islike
-    description,
-    available,
-    brand,
-    type,
-    fuelCapacity,
-    transmission,
-    seatingCapacity,
-    pricePerDay,
-    image,
-    tags,
-  }`;
-  const res = await client.fetch(query)
-  return res;
+   islike,
+   description,
+   available,
+   type,
+   fuelCapacity,
+   transmission,
+   seatingCapacity,
+   pricePerDay,
+   image,
+   tags,
+ }`;
+ const res:products[] = await client.fetch(query)
+ return res
 }
 
 const Popular  = async () => {
 
-  const data = await getData2()
+  const data:products[] = await getData()
   // console.log(data)
 
   return (
@@ -58,6 +57,7 @@ const Popular  = async () => {
 
 </>
 )
+
 }
 
 export default Popular;

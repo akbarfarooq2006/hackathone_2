@@ -1,4 +1,5 @@
 'use client'
+//@ts-ignore
 import React, { useState } from "react";
 import DotBluePoints from "../mini/DotBluePoints";
 import FormHeader from "../header/FormHeader";

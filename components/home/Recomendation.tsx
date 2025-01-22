@@ -8,7 +8,8 @@ import { products } from '@/types/products';
 
 
 
-export async  function getData() {
+async  function getData() {
+    
    const query = `*[_type =='products' && "recommended" in tags ] {
    name,
     id,
@@ -25,7 +26,7 @@ export async  function getData() {
     image,
     tags,
   }`;
-  const res = await client.fetch(query)
+  const res:products[] = await client.fetch(query)
   return res
 }
 
