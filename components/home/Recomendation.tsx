@@ -1,38 +1,42 @@
-import React from 'react'
+'use client'
+import React,{useState,useEffect} from 'react'
 import CategoryHeader from '../header/CategoryHeader'
 import Card from '../delete_component/Card'
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client';
 import Cards from '../mini/Cards';
 import { products } from '@/types/products';
+import { useLikeContext } from '@/app/context/LikeContext';
 
-
-
-async  function getData() {
+const Recomendation = () => {
     
-   const query = `*[_type =='products' && "recommended" in tags ] {
-   name,
-    id,
-    _id,
-    name,
-    islike,
-    description,
-    available,
-    type,
-    fuelCapacity,
-    transmission,
-    seatingCapacity,
-    pricePerDay,
-    image,
-    tags,
-  }`;
-  const res:products[] = await client.fetch(query)
-  return res
-}
+  const {liked} =useLikeContext();
+  const [data, setData] = useState([]);//here popular tag data will be stored
+  const [error, setError] = useState("");
+  const [islike, setislike] = useState<boolean>(false);
 
-const Recomendation = async() => {
+  async function fetchData() {
+    try {
+      const res = await fetch("/api/recomendationData");
+      const result = await res.json();
+      setData(result.data);
+      // console.log(result.data,'useeffect data received');
+    } catch (err) {
+      setError("Failed to fetch data");
+    }
+  }
+  useEffect(() => {
+    fetchData();
+  }, [liked]);
 
-const data:products[] = await getData();
+  if (error) return <p>{error}</p>;
+
+
+  const handlecallfunction = (value: boolean) => {
+    setislike(value);
+    fetchData();
+  };
+
 
 
   return (
@@ -50,7 +54,7 @@ const data:products[] = await getData();
             {
                 data.map((item:products)=>{
                     return(
-                        <Cards key={item._id} item={item}/>
+                        <Cards key={item._id} item={item} update={handlecallfunction}  />
                     )
                 })
             }

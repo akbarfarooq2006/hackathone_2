@@ -10,7 +10,7 @@ import { products } from "@/types/products";
 import { urlFor } from "@/sanity/lib/image";
 import { useState,useEffect } from "react";// Importing Font Awesome heart icons
 import { likeHandle } from "@/action/like";
-
+import { useLikeContext } from "@/app/context/LikeContext";
   
 
  
@@ -20,18 +20,34 @@ const formatPrice = (price: number | string): string => {
   return `${numericPrice.toLocaleString("en-US")}`;
 };
 
-const Cards = ({item,data}:{item:products,data?:()=>void}) => {
+const Cards = ({item,update}:{item:products,update?:(value:boolean)=>void}) => {
 
 
+const {liked,setliked} =useLikeContext();
+
+  
   // const [isActive, setIsActive] = useState(false);
   const [isActive, setIsActive] = useState<boolean>(item.islike); // Initialize with item.islike
 
 
   const toggleHeart = async () => {
-    const newLikeState = !isActive;
-    console.log(item.islike ,'helo')
-    setIsActive(newLikeState); // Toggle the like state locally
-    await likeHandle(item._id, newLikeState); // Update like status in the backend (Sanity)
+    // console.log(item.islike ,'helo ye he item.islike')
+    update?.(!isActive) // Call update function if provided
+    console.log(isActive,'is ative wala he')
+    setIsActive((prev) => !prev);
+    console.log(!isActive,' toggle wala ho is ative wala he')
+    try {
+      const returnValue = await likeHandle(item._id, !isActive); // Wait for the backend response
+      if (returnValue) {
+        // console.log("Successfully updated backend:", returnValue);
+        setliked((prev) => prev + 1); // Update context after backend confirmation
+      }
+    } catch (error) {
+      console.error("Failed to update like status:", error);
+      // Optionally revert the local state if backend update fails
+      setIsActive((prev) => !prev);
+    }
+
   };
 
 

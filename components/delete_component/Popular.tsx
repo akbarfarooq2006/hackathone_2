@@ -5,10 +5,31 @@ import { client } from '@/sanity/lib/client';
 import { products } from '@/types/products';
 import Cards from '../mini/Cards';
 import { useState,useEffect } from 'react';
-import { useLikeContext } from '@/app/context/LikeContext';
+
+// async  function getData() {
+//   const query = `*[_type =='products' && "popular" in tags ] {
+//    name,
+//    id,
+//    _id,
+//    name,
+//    islike,
+//    description,
+//    available,
+//    type,
+//    fuelCapacity,
+//    transmission,
+//    seatingCapacity,
+//    pricePerDay,
+//    image,
+//    tags,
+//  }`;
+
+//  const res:products[] = await client.fetch(query)
+//  return res
+// }
+
 
 const Popular =  () => {
- const {liked} =useLikeContext();
  
 
   const [data, setData] = useState([]);//here popular tag data will be stored
@@ -20,14 +41,14 @@ const Popular =  () => {
       const res = await fetch("/api/popularData");
       const result = await res.json();
       setData(result.data);
-      // console.log(result.data,'useeffect data received');
+      console.log(result.data,'useeffect data received');
     } catch (err) {
       setError("Failed to fetch data");
     }
   }
   useEffect(() => {
     fetchData();
-  }, [liked]);
+  }, [islike]);
 
   if (error) return <p>{error}</p>;
 

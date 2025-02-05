@@ -54,12 +54,8 @@ const data:products  = await getData(id) // upar wali id kois function me paas k
 
   return (
     <div className='h-full'>
-<Header2/>
-
-{
 
     <Rent_detail item={data}/>
-}
 
     </div>
   )

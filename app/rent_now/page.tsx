@@ -66,17 +66,17 @@ const RentNowPage = () => {
 
   return (
     <div>
-      <Header1 />
+      {/* <Header1 /> */}
       {/* Suspense boundary for conditional rendering */}
-      {carId ? <Rent_now_copy carId={carId} /> : <div>Loading...</div>} {/* Render loading state or Rent_now_copy */}
-    </div>
+      {carId ? <Rent_now_copy carId={carId} /> : <div className='h-[90vh] grid place-items-center '><span className='spinner'></span></div>} 
+    </div> 
   )
 }
 
 export default function Page() {
   return (
     // Suspense boundary for the whole page
-    <Suspense fallback={<div className="spinner"></div>}>
+    <Suspense fallback={<div className=" ">loading...</div>}>
       <RentNowPage />
     </Suspense>
   )

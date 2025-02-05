@@ -28,7 +28,7 @@ const Category = () => {
     <>
 
       <div className=" w-full h-full">
-        <Header2 />
+      
         <div className=" flex flex-row h-full  justify-center relative">
           {/* side 1 */}
           <SideBar

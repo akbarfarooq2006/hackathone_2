@@ -10,9 +10,9 @@ export default function Home() {
   return (
 <>
 <div>
-  <Header1/>
-  <FrontAds/>
+<FrontAds/>
 <UpDrop/>
+{/* <Popular/> */}
 <Popular/>
 <Recomendation/>
 

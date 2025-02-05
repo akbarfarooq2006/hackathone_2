@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import Footer from "@/components/footer/Footer";
-
+import Header2 from "@/components/header/Header2";
+import { LikeProvider } from "./context/LikeContext";
 
 const jarka = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -33,14 +34,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       {/* <link rel="shortcut icon" href="/favicon/ic.png" type="image/x-icon" /> */}
       <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased
           ${jarka.variable}
           `}
       >
+        <LikeProvider>
+        <Header2/>
         {children}
         <Footer/>
+        </LikeProvider>
       </body>
     </html>
   );
