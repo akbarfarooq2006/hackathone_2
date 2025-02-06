@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { FaStar,FaRegStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import CategoryHeader from '../header/CategoryHeader'
-import Card from '../delete_component/Card'
+import Card from '../old/Card'
 import { products } from '@/types/products';
 import { urlFor } from '@/sanity/lib/image';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
