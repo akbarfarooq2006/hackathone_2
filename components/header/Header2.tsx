@@ -44,7 +44,7 @@ const Header2 = () => {
       {/* side 2 */}
       <div className='flex items-center gap-x-3'>
         {/* 3--icon */}
-        <div className='sm:flex hidden items-center gap-x-3'>
+        <div className='flex items-center gap-x-3'>
            <Like_icon/>
            <div className='border-[1px] border-secondary2/40 rounded-full p-1'><BiSolidBell  className='text-button4 text-xl bg-secondary'/></div>
             <div className='border-[1px] border-secondary2/40 rounded-full p-1'><IoMdSettings className='text-button4 text-xl bg-secondary'/></div>

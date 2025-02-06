@@ -20,27 +20,38 @@ const formatPrice = (price: number | string): string => {
   return `${numericPrice.toLocaleString("en-US")}`;
 };
 
-const Cards = ({item,update}:{item:products,update?:(value:boolean)=>void}) => {
+const Cards = ({item}:{item:products}) => {
 
 
-const {liked,setliked} =useLikeContext();
+const {setliked,setcount,setvalue} = useLikeContext();
 
-  
-  // const [isActive, setIsActive] = useState(false);
+
   const [isActive, setIsActive] = useState<boolean>(item.islike); // Initialize with item.islike
 
 
-  const toggleHeart = async () => {
-    // console.log(item.islike ,'helo ye he item.islike')
-    update?.(!isActive) // Call update function if provided
-    console.log(isActive,'is ative wala he')
+  useEffect(() => {
+    // Update the state whenever the "islike" prop changes
+    // console.log(item.islike,"❤️❤️❤️❤️❤️❤️❤️");
+    setIsActive(item.islike);
+  }, [item.islike]);
+
+  const toggleHeart = async () => { 
+   
     setIsActive((prev) => !prev);
-    console.log(!isActive,' toggle wala ho is ative wala he')
+    
+    //update number
+    if (!isActive) {
+      setcount((prev) => prev + 1)
+    } else {
+      setcount((prev) => prev - 1)
+    }
+    //update context always
     try {
       const returnValue = await likeHandle(item._id, !isActive); // Wait for the backend response
       if (returnValue) {
-        // console.log("Successfully updated backend:", returnValue);
+        console.log("Successfully updated backend:👍👍👍👍🏻👍🏻👍🏻👍🏻👍🏻", returnValue);
         setliked((prev) => prev + 1); // Update context after backend confirmation
+        return returnValue;
       }
     } catch (error) {
       console.error("Failed to update like status:", error);
@@ -125,3 +136,4 @@ const {liked,setliked} =useLikeContext();
 };
 
 export default Cards;
+

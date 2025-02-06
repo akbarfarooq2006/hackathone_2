@@ -1,8 +1,13 @@
+import LikeComponents from '@/components/likeProduct/LikeComponents'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>like products</div>
+    <>
+    <div>
+      <LikeComponents/>
+    </div>
+    </>
   )
 }
 

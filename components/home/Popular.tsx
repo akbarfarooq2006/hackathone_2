@@ -8,40 +8,35 @@ import { useState,useEffect } from 'react';
 import { useLikeContext } from '@/app/context/LikeContext';
 
 const Popular =  () => {
- const {liked} =useLikeContext();
+ const {liked,count} =useLikeContext();
  
 
-  const [data, setData] = useState([]);//here popular tag data will be stored
+  const [data, setdata] = useState([]);//here popular tag data will be stored
   const [error, setError] = useState("");
-  const [islike, setislike] = useState<boolean>(false);
+  // const [islike, setislike] = useState<boolean>(false);
 
   async function fetchData() {
     try {
       const res = await fetch("/api/popularData");
       const result = await res.json();
-      setData(result.data);
-      // console.log(result.data,'useeffect data received');
+      if(result.data){
+        setdata(result.data)
+      }
+      // setdata(result.data);
+      if (data) {
+        console.log(data,"🎉🎉");
+      }
     } catch (err) {
       setError("Failed to fetch data");
     }
   }
+
   useEffect(() => {
     fetchData();
-  }, [liked]);
+    console.log('popular ka render check😜😜')
+  }, [liked,count]);
+if (error) return <p>{error}</p>;
 
-  if (error) return <p>{error}</p>;
-
-
-  const handlecallfunction = (value: boolean) => {
-    setislike(value);
-    fetchData();
-  };
-
-
-  
-
-  // const data:products[] = await getData()
-  // console.log(data, 'data')
 
   return (
 <>
@@ -55,15 +50,11 @@ const Popular =  () => {
         <div className='grid lg:grid-cols-4 lg:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2  gap-5  '>
            {data.map((items:products) =>{
             return(
-              <Cards key={items._id}  item={items}  update={handlecallfunction}/>
+              <Cards key={items._id}  item={items} />
             )
            }
            )}
         </div>
-
-
-
-
 
     </div>
  </div>

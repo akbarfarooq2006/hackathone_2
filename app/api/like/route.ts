@@ -5,10 +5,19 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const query = `*[_type =='products' && islike == true ] {
-        name,
+       name,
          id,
          _id,
          islike,
+         description,
+         available,
+         type,
+         fuelCapacity,
+         transmission,
+         seatingCapacity,
+         pricePerDay,
+         image,
+         tags,
        }`;
     
     const data = await client.fetch(query);

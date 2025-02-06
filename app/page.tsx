@@ -12,7 +12,7 @@ export default function Home() {
 <div>
 <FrontAds/>
 <UpDrop/>
-{/* <Popular/> */}
+<Popular/>
 <Popular/>
 <Recomendation/>
 

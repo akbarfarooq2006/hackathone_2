@@ -128,7 +128,6 @@ const Rent_detail = ({item}:{item:products}) => {
 
               </div>  
               {/* like view */}
-                {/* <FaHeart className='text-button2 text-xl absolute top-4 right-4'/> */}
                 { item.islike  ? (<AiFillHeart className="text-red-600 down text-xl absolute top-4 right-4"/> ) : (<AiOutlineHeart className="text-gray-700 down text-xl absolute top-4 right-4" />)}  {/* Filled or outline heart */}
             </div>
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
 <>
-<div className='bg-secondary py-10'>
+<div className='bg-secondary py-10 '>
     <div className='container flex flex-col gap-y-8 '>
 
         {/* upside */}

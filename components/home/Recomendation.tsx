@@ -54,7 +54,7 @@ const Recomendation = () => {
             {
                 data.map((item:products)=>{
                     return(
-                        <Cards key={item._id} item={item} update={handlecallfunction}  />
+                        <Cards key={item._id} item={item}/>
                     )
                 })
             }
