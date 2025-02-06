@@ -4,6 +4,7 @@ import FrontAds from "@/components/home/FrontAds";
 import Popular from "@/components/home/Popular";
 import Recomendation from "@/components/home/Recomendation";
 import UpDrop from "@/components/home/UpDrop";
+import Carsbutton from "@/components/mini/Carsbutton";
 
 
 export default function Home() {
@@ -12,11 +13,10 @@ export default function Home() {
 <div>
 <FrontAds/>
 <UpDrop/>
-<Popular/>
+{/* <Popular/> */}
 <Popular/>
 <Recomendation/>
-
-
+<Carsbutton/>
 
 </div>
 </>   

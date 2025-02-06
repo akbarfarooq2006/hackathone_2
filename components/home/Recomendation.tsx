@@ -7,19 +7,29 @@ import { client } from '@/sanity/lib/client';
 import Cards from '../mini/Cards';
 import { products } from '@/types/products';
 import { useLikeContext } from '@/app/context/LikeContext';
+import PageLoader from '../loader/PageLoader'
 
 const Recomendation = () => {
     
   const {liked} =useLikeContext();
   const [data, setData] = useState([]);//here popular tag data will be stored
   const [error, setError] = useState("");
-  const [islike, setislike] = useState<boolean>(false);
+  const [loading, setloading] = useState<boolean>(true);
 
+
+
+  
   async function fetchData() {
     try {
+      // setloading(true);
       const res = await fetch("/api/recomendationData");
       const result = await res.json();
       setData(result.data);
+      
+      if(data){
+
+        setloading(false);
+      }
       // console.log(result.data,'useeffect data received');
     } catch (err) {
       setError("Failed to fetch data");
@@ -32,17 +42,14 @@ const Recomendation = () => {
   if (error) return <p>{error}</p>;
 
 
-  const handlecallfunction = (value: boolean) => {
-    setislike(value);
-    fetchData();
-  };
-
 
 
   return (
+ 
 <>
-<div className='w-full mt-7 mb-10'>
-    <div className='container flex flex-col gap-y-5'>
+{/* <div className={`mt-7 w-full mb-10`}> */}
+<div className={`mt-7 w-full relative ${loading?("min-h-[40vh] "):""}  `}>
+    <div className={`container flex flex-col gap-y-5 `}>
     <CategoryHeader 
         head='recomendation car' 
         className='hidden'
@@ -59,18 +66,13 @@ const Recomendation = () => {
                 })
             }
         </div>
-
-
-    <div className='w-full flex items-center justify-center mt-4'>
-        <Link href={'/categories'} className='bg-button1 capitalize text-secondary font-semibold sm:px-4 sm:py-2 px-3 py-1.5 rounded md:text-base text-sm  hover:scale-105 down grid place-items-center hover:bg-button1/85 transform-gpu  overflow-hidden'>
-        Show more cars
-        </Link>
     </div>
 
-
-
-
-    </div>
+    {
+      loading ?(<div className={`set `}>
+          <PageLoader/>
+      </div>):""
+    }  
 </div>
 </>
 )

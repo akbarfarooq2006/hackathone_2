@@ -6,6 +6,7 @@ import { products } from '@/types/products';
 import Cards from '../mini/Cards';
 import { useState,useEffect } from 'react';
 import { useLikeContext } from '@/app/context/LikeContext';
+import PageLoader from '../loader/PageLoader';
 
 const Popular =  () => {
  const {liked,count} =useLikeContext();
@@ -13,14 +14,19 @@ const Popular =  () => {
 
   const [data, setdata] = useState([]);//here popular tag data will be stored
   const [error, setError] = useState("");
-  // const [islike, setislike] = useState<boolean>(false);
+  const [loading, setloading] = useState<boolean>(true);
 
   async function fetchData() {
     try {
+      // setloading(true);
       const res = await fetch("/api/popularData");
       const result = await res.json();
       if(result.data){
         setdata(result.data)
+      }
+      if(data){
+
+        setloading(false);
       }
       // setdata(result.data);
       if (data) {
@@ -34,13 +40,13 @@ const Popular =  () => {
   useEffect(() => {
     fetchData();
     console.log('popular ka render check😜😜')
-  }, [liked,count]);
+  }, [liked]);
 if (error) return <p>{error}</p>;
 
 
   return (
 <>
- <div className='mt-7 w-full'>
+<div className={`mt-7 w-full relative ${loading?("min-h-[40vh] "):""}  `}>
     <div className='container flex flex-col gap-y-5'>
         <CategoryHeader 
         head='popular' 
@@ -57,6 +63,12 @@ if (error) return <p>{error}</p>;
         </div>
 
     </div>
+    {
+      loading ?(<div className={`set `}>
+          <PageLoader/>
+      </div>):""
+    } 
+  
  </div>
 
 </>
