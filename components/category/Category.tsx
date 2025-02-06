@@ -1,10 +1,6 @@
 // "use client"
 import React from "react";
 import SideBar from "../mini/SideBar";
-import UpDrop from "../home/UpDrop";
-import Card from "../delete_component/Card";
-import Select from "../mini/Select";
-import Link from "next/link";
 import CrRecomendation from "./CrRecomendation";
 
 

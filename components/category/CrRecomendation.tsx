@@ -1,9 +1,7 @@
 'use client'
 import React,{useState,useEffect} from 'react'
 import CategoryHeader from '../header/CategoryHeader'
-import Card from '../delete_component/Card'
 import Link from 'next/link'
-import { client } from '@/sanity/lib/client';
 import Cards from '../mini/Cards';
 import { products } from '@/types/products';
 import { useLikeContext } from '@/app/context/LikeContext';
