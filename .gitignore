@@ -40,6 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# conponent 
-/components/delete_component/
-/delete_component/
