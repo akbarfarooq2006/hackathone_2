@@ -34,7 +34,7 @@ const BillingInputs:React.FC<rr> = ({value,pattern,change, min,label,type='text'
 
   return (
     <div className='flex flex-col gap-y-3'>
-        <label htmlFor={name} className='capitalize md:text-base text-sm font-semibold text-seconday3'>{label}</label>
+        <label htmlFor={name} className='capitalize md:text-base  text-sm font-semibold text-seconday3'>{label}</label>
         <input min={min} type={type} id={name} name={name} className={`${bg_color} placeholder:text-button3 md:placeholder:text-sm placeholder:text-xs  text-sm  font-medium rounded-[10px] sm:px-7 px-5 py-3 focus:outline-none border-[1px] border-button1/0 focus:border-button1/100`} placeholder={placeholder}
         onChange={change}
         pattern={pattern}
