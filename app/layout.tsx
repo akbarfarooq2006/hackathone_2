@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      {/* <link rel="shortcut icon" href="/favicon/ic.png" type="image/x-icon" /> */}
+      <link rel="shortcut icon" href="favicon/ic.png" type="image/x-icon" />
       <body suppressHydrationWarning
         className={`${geistSans.variable} relative ${geistMono.variable} antialiased
           ${jarka.variable}

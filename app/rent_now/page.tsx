@@ -13,7 +13,7 @@ import calculateRentalDays from '@/action/calculate'
 const RentNowPage = () => {
   const searchParams = useSearchParams()
   const [carId, setCarId] = useState<string | undefined | null>(null)
-  const [id, setid] = useState<string>("")
+  
 
   useEffect(() => {
     // Get 'cars' query parameter from URL
@@ -24,32 +24,11 @@ const RentNowPage = () => {
   }, [searchParams]) // Only rerun if searchParams changes
   
 
-  useEffect(() => {
-    async function get() {
-      try {
-        const query = `*[_type =='products' && id=="${carId} "] {
-             _id,
-            
-           }`;
-        
-        const data = await client.fetch(query);
-        console.log(data,"jjjjjjjjjjjjj");
-        // setid(data[0]._id)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }  
-    }
-    get()
-  }, []);
-  
+ 
     
 
 
-
-  console.log(carId, 'car id phey ye')
-  if(id)
-  console.log(id, '❤️❤️❤️❤️')
-
+ 
   return (
     <div>
       {/* <Header1 /> */}
