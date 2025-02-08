@@ -5,7 +5,7 @@ const page = () => {
   return (
     <div>
         <div >
-<AddressInput/>
+
         </div>
     </div>
   )

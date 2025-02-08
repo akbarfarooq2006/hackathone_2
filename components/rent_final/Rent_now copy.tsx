@@ -143,6 +143,7 @@ const [pref, setpref] = useState("")
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(data);
+    
     let days =  calculateRentalDays(data.pickupDate,data.pickupTime,data.dropoffDate)
     let time = timeCalsulate(data.pickupTime)
     data.pickupTime = time;
